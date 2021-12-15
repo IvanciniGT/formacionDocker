@@ -88,6 +88,7 @@ Dev--->ops > Cultura, filosofía: VAMOS A AUTOMATIZAR TODO LO AUTOMATIZABLE
     Kubernetes + Openshift
     
     Integración Continua.   Continuous Integration
+        VVVVV.  SonarQube
     Entrega Continua.       Continuous Delivery
     Despliegue Continuo.    Continuous Deployment
     

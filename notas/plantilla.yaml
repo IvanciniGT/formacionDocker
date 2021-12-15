@@ -4,6 +4,7 @@
 # Docuemnto 2
 --- # Marca de inicio de documento
 # Docuemnto 3
+... # Marca de final de documento OPCIONAL. Trabajamos con documentos YAML en streaming
 ---
 # Docuemnto 4
 ---

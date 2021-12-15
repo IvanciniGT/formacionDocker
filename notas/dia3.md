@@ -22,3 +22,5 @@ Entorno aislado?
 - Limitación de acceso a recursos.
 - Su propio entorno de variables: ENVIRONMENT.
     Esto es especialmente útil para configurar los procesos que corren en un determinado contenedor
+
+# SonarQube... BBDD PostgreSQL
