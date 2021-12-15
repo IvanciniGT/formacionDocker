@@ -1,0 +1,53 @@
+# Comentarios !!!!!!!
+# Docuemnto 1
+---
+# Docuemnto 2
+--- # Marca de inicio de documento
+# Docuemnto 3
+---
+# Docuemnto 4
+---
+# Docuemnto 5
+---
+# Un documento en YAML es lo que denominamos >UN< NODO
+---
+# En YAML hay 2 tipos de nodos:
+# Escalares: o valores simples
+# De coleccion: Agrupan varios nodos
+---
+# Escalar: Numeros
+34
+---
+-17.98
+---
+# Escalares: Textos
+"HOLA"
+---
+'HOLA'
+---
+HOLA
+---
+# Escalares: Logicos:
+True # true TRUE
+---
+False # false FALSE
+---
+# Nodos de coleccion de nodos:
+# Listas ordenadas
+# Mapas desordenados
+---
+# Lista: Secuencia ordenada de nodos, precedidos por guiones
+- item1
+- item 2
+- item 3
+---
+- item1
+- 33
+- True
+---
+- -  item 1
+  - item 2
+-            - item 2
+             - item 3
+---
+# Mapas: 
