@@ -50,4 +50,85 @@ False # false FALSE
 -            - item 2
              - item 3
 ---
-# Mapas: 
+# Mapas: Secuencia de nodos no ordenados, 
+# donde cada elemento va identificado por una clave
+clave1: item1
+clave2: item2
+clave3: item3
+---
+clave2: item2
+clave1: item1
+clave3: item3
+---
+clave3: item3
+clave2: item2
+clave1: item1
+---
+clave3: item3
+clave2: True
+clave1: 33
+clave4:
+    - item 1
+    - item 2
+clave5: 
+    subclave1: subitem1
+    subclave2: 
+        subsubclave1: 33
+---
+
+
+
+
+"Hola 
+amigo
+
+mio"
+---
+'Hola
+amigo
+
+mio'
+---
+Hola
+amigo
+
+mio
+---
+# Sintaxis en bloque para textos:
+# Literal |
+|-
+    Hola 
+    amigo mio
+    
+      como estás? "'# 
+    \n \\
+    
+    
+---
+# Folded >
+>-
+    Hola 
+    amigo mio
+    
+      como estás? "'# 
+    \n \\
+---
+> 
+    docker 
+        container create 
+        --name wp-mysql 
+        -v /home/ubuntu/environment/datos/wp/mysql:/var/lib/mysql 
+        -p 172.17.0.1:3306:3306 
+        -e MYSQL_ROOT_PASSWORD=password 
+        -e MYSQL_DATABASE=wp 
+        -e MYSQL_USER=usuario 
+        -e MYSQL_PASSWORD=password 
+        mysql:latest
+
+
+
+
+
+
+
+

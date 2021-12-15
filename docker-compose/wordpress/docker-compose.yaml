@@ -1,0 +1,27 @@
+version: "3.0"  # Indica la versión del esquema de docker-compose para YAML que estamos utilizando
+                # Según el esquema de docker-compose, la versión debe ser un texto
+
+services:
+    basededatos: # Nombres DNS
+        container_name:     wp-mysql
+        image:              mysql:latest        
+        volumes:
+            - /home/ubuntu/environment/datos/wp/mysql:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_DATABASE=wp
+            - MYSQL_USER=usuario
+            - MYSQL_PASSWORD=password
+            
+    wordpress:   # Nombres DNS
+        container_name:     wp
+        image:              wordpress:latest
+        volumes:
+            - /home/ubuntu/environment/datos/wp/wp:/var/www/html
+        ports:
+            - 0.0.0.0:8080:80
+        environment:
+            - WORDPRESS_DB_HOST=basededatos
+            - WORDPRESS_DB_NAME=wp
+            - WORDPRESS_DB_USER=usuario
+            - WORDPRESS_DB_PASSWORD=password
