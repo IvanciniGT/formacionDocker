@@ -24,3 +24,38 @@ Entorno aislado?
     Esto es especialmente útil para configurar los procesos que corren en un determinado contenedor
 
 # SonarQube... BBDD PostgreSQL
+
+
+Imagen: Ubuntu
+
+/bin
+    bash
+    mv
+    cp
+    mkdir
+    chmod
+    ...
+    apt
+    apt-get
+
+Imagen: Fedora
+
+/bin
+    bash
+    mv
+    cp
+    mkdir
+    chmod
+    ...
+    yum
+
+
+$ docker container create --name mi-nginx nginx:latest
+$ docker start mi-nginx 
+    Arrancar un proceso a nivel de SO (HOST)
+
+apt update
+apt install git -y
+git clone https://github.com/IvanciniGT/webEjemploAnsible /tmp/web
+cp /tmp/web/* /usr/share/nginx/html
+nginx -g daemon off;

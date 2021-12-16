@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: mi-nginx
+    image: nginx
+    #restart: always # on_failure
+    command: 
+        - sh
+        - -c
+        - /tmp/script-arranque.sh
+    volumes:
+      - /home/ubuntu/environment/curso/docker-compose/nginx/script-arranque.sh:/tmp/script-arranque.sh
+
+  nginx2:
+    container_name: mi-nginx2
+    image: nginxivan:1
+    #restart: always
+    
+  nginx3:
+    container_name: mi-nginx3
+    build: .
+    #restart: always

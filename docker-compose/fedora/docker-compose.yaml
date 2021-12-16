@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  fedora:
+    image: fedora
+    container_name: mi-fedora
+    command: 
+        - sh 
+        - -c
+        - echo HOLA && sleep 3600
