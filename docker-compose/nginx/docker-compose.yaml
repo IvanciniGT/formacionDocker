@@ -29,5 +29,17 @@ services:
       dockerfile: Dockerfile.ubuntu
       args:
         FICHERO_CONFIGURACION_NGINX: configuracion.nginx
-        NGINX_PORT: 81
-    #restart: always
+        NGINX_PORT: 90
+        WEB_GIT_URL: https://github.com/IvanciniGT/webEjemploAnsible
+    #restart: always   on_failure 
+    
+  nginx5:
+    container_name: mi-nginx5
+    build: 
+      context: .
+      dockerfile: Dockerfile.ubuntu
+      args:
+        FICHERO_CONFIGURACION_NGINX: configuracion.nginx
+        NGINX_PORT: 90
+    volumes:
+      - /home/ubuntu/environment/curso/docker-compose/nginx/custom-web:/www

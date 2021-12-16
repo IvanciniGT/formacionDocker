@@ -1,21 +1,42 @@
 #!/bin/bash
 FROM ubuntu:latest
+
+# Esta deprecated
+MAINTAINER Ivan Osuna <ivan.osuna.ayuste@gmail.com>
+# Ahora se hace mediante un LABEL
+
+LABEL clave=valor
+LABEL QuienManieneEsto=Ivan
+LABEL VersionDeNginx=10.1
+
 #Variables a suministrar en el momento de crear la imagen del contenedor
 ARG FICHERO_CONFIGURACION_NGINX=configuracion.nginx # Valor por defecto
 ARG NGINX_PORT=80
+ARG WEB_GIT_URL
 
 ENV NGINX_PORT=$NGINX_PORT 
 
 RUN apt update
 RUN apt install nginx -y
-RUN apt install git -y
-RUN git clone https://github.com/IvanciniGT/webEjemploAnsible /www
+RUN [ -n "$WEB_GIT_URL" ] && apt install git -y || return 0
+RUN [ -n "$WEB_GIT_URL" ] && git clone $WEB_GIT_URL /www || mkdir /www
 #RUN cp -rv /tmp/web/* /www
 
 COPY $FICHERO_CONFIGURACION_NGINX /etc/nginx/sites-available/default
-sed -i 's/AMIGO/ENEMIGO/g' prueba.txt
-EXPOSE $NGINX_PORT 
+RUN sed -i "s/PORT/$NGINX_PORT/g" /etc/nginx/sites-available/default
+
 # Esto sirve para decirle a quien el puerto que se usa?
+EXPOSE $NGINX_PORT 
+VOLUME ["/www"]
 # A mi! que soy un humano... El ordenador pasa de esto.....
 
 CMD ["nginx", "-g", "daemon off;"]
+# ENTRYPOINT Equivalente al CMD
+
+WORKDIR /www 
+# Establece el directorio por defecto en el que se ejecutan 
+# nuevos procesos dentro del contenedor
+
+# Chequeos que debe hacer docker para asegurar que el contenedor
+# está en funcionamiento
+# HEALTHCHECK
