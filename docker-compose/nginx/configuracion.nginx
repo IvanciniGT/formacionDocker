@@ -1,6 +1,6 @@
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+	listen PORT default_server;
+	listen [::]:PORT default_server;
 
 	root /www;
 
@@ -11,5 +11,4 @@ server {
 	location / {
 		try_files $uri $uri/ =404;
 	}
-
 }
