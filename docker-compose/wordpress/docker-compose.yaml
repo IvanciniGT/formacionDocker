@@ -20,6 +20,7 @@ services:
             - /home/ubuntu/environment/datos/wp/wp:/var/www/html
         ports:
             - 0.0.0.0:8080:80
+        restart: always #unless-stopped
         environment:
             - WORDPRESS_DB_HOST=basededatos
             - WORDPRESS_DB_NAME=wp

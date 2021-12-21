@@ -31,3 +31,18 @@ EXPOSE 8080
 EXPOSE 8443
 VOLUME ["/app"]
 
+HEALTHCHECK --interval=10s \
+            --timeout=5s \
+            --start-period=40s \
+            --retries=5 \
+            CMD curl http://localhost:8081 || exit 1
+                # script
+# Hasta los 40s, no se inician los chequeos. 
+#       Mientras tanto estamos en estado: starting
+
+# Cada 10s se irá realizando el chequeo
+#   Si un chequeo tarda más de 5s en contestar o devuelve 1
+#       Nueva falta: Tarjeta Amarilla !
+
+# Si llegamos a acumular 5 tarjetas amarillas => tarjeta ROJA:
+#       Estado: unhealthy
