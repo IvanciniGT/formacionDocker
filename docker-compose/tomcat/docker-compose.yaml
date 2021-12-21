@@ -1,0 +1,29 @@
+version: "3.0"
+
+services:
+    tomcat: # DNS a utilizar en otros contenedores 
+            # para referirme a este
+        container_name: mi-tomcat
+        image: bitnami/tomcat:latest
+        volumes:
+            - /home/ubuntu/environment/app/mi-web-service/target/mi-web-service.war:/app/miapp.war
+        ports:
+            - 8080:8080
+        environment: 
+#            - ALLOW_EMPTY_PASSWORD=yes
+            ALLOW_EMPTY_PASSWORD: "yes"
+
+    tomcat2: # DNS a utilizar en otros contenedores 
+            # para referirme a este
+        container_name: mi-tomcat-2
+        build: 
+            context: .
+            args:
+                URL_GIT: https://github.com/IvanciniGT/automatizacionTesting
+                NOMBRE_PROYECTO: mi-web-service
+        image: miimagen:latest
+        ports:
+            - 8081:8080
+        environment: 
+#            - ALLOW_EMPTY_PASSWORD=yes
+            ALLOW_EMPTY_PASSWORD: "yes"

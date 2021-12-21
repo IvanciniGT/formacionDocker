@@ -69,6 +69,7 @@ $ docker run --name NOMBRE IMAGEN
     docker container create
     docker start
     docker attach < -d (dettached)
+        --rm Despues de ejecutar borra el contenedor
     
 ## Ejecutar procesos nuevos dentro de un contenedor
 $ docker exec NOMBRE COMANDO

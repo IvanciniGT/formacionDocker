@@ -27,11 +27,19 @@
 'HOLA'
 ---
 HOLA
----
+--- #Spec YAML 1.2
 # Escalares: Logicos:
 True # true TRUE
 ---
 False # false FALSE
+--- #Spec YAML 1.1
+Yes # yes YES
+Y # y
+On #on ON
+Off # off OFF
+No # NO no
+N # n
+
 ---
 # Nodos de coleccion de nodos:
 # Listas ordenadas
